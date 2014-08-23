@@ -1,8 +1,6 @@
 import os
 
-#"rdsamp -r gaitndd/als1 -c -H -f 0 -t 300 -v -pd >samples.csv"
-
-INPUT_DATA = {
+INPUT_CONFIG = {
         "als": 13,
         "control": 16,
         "hunt": 20,
@@ -18,8 +16,8 @@ def rdsamp_cmd(inp):
     return "rdsamp -r " + inp_file + " -c -H -f 0 -t 300 -v -pd > " + out_file
 
 def data_input():
-    for file_prefix in INPUT_DATA:
-        max_file = INPUT_DATA[file_prefix]
+    for file_prefix in INPUT_CONFIG:
+        max_file = INPUT_CONFIG[file_prefix]
         for i in range(1, max_file+1):
             yield (file_prefix + str(i))
 
